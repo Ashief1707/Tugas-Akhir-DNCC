@@ -77,7 +77,7 @@ class ProfilPage extends StatelessWidget {
                 children: [
                     menuItem(Icons.person, 'Account', context),
                     Divider(color: Colors.black), // Divider line
-                    menuItem(Icons.bookmark, 'Saved', context),
+                    menuItem(Icons.favorite, 'Favorite', context),
                     Divider(color: Colors.black),
                     menuItem(Icons.language, 'Language', context),
                     Divider(color: Colors.black),

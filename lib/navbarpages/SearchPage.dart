@@ -1,3 +1,4 @@
+import 'package:cek/contentpages/DetailPage.dart';
 import 'package:cek/style/ColorConfig.dart';
 import 'package:flutter/material.dart';
 
@@ -128,17 +129,17 @@ class SearchPage extends StatelessWidget {
                 scrollDirection: Axis.vertical,
                 child: Column(
                   children: [
-                    searchcontent(Image.asset("assets/images/search/content1.png")),
+                    searchcontent(Image.asset("assets/images/search/content1.png"),context),
                     SizedBox(height: 10),
-                    searchcontent(Image.asset("assets/images/search/content2.png")),
+                    searchcontent(Image.asset("assets/images/search/content2.png"),context),
                     SizedBox(height: 10),
-                    searchcontent(Image.asset("assets/images/search/content3.png")),
+                    searchcontent(Image.asset("assets/images/search/content3.png"),context),
                     SizedBox(height: 10),
-                    searchcontent(Image.asset("assets/images/search/content4.png")),
+                    searchcontent(Image.asset("assets/images/search/content4.png"),context),
                     SizedBox(height: 10),
-                    searchcontent(Image.asset("assets/images/search/content1.png")),
+                    searchcontent(Image.asset("assets/images/search/content1.png"),context),
                     SizedBox(height: 10),
-                    searchcontent(Image.asset("assets/images/search/content2.png")),
+                    searchcontent(Image.asset("assets/images/search/content2.png"),context),
                   ],
                 ),
               ),
@@ -149,76 +150,81 @@ class SearchPage extends StatelessWidget {
     );
   }
 
-  Container searchcontent(Image img) {
-    return Container(
-                width: double.infinity,
-                height: 110,
-                decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(14)),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 10, horizontal: 15),
-                  child: Row(
-                    children: [
-                      Container(
-                        width: 110,
-                        height: 88,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(14)),
-                        child:
-                            img,
-                      ),
-                      SizedBox(width: 15),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            "Mobile UI Essentials",
-                            style: TextStyle(
-                                fontSize: 16, fontWeight: FontWeight.bold),
-                          ),
-                          Text(
-                            "Intemediate / 28 lessons",
-                            style:
-                                TextStyle(color: Colors.grey, fontSize: 14),
-                          ),
-                          SizedBox(height: 23),
-                          Row(
-                            children: [
-                              Icon(
-                                Icons.star,
-                                color: Colors.yellow,
-                                size: 20,
-                              ),
-                              Text(
-                                "4.9",
-                                style: TextStyle(
-                                    fontSize: 14, color: Colors.grey),
-                              ),
-                              SizedBox(width: 5),
-                              Text(
-                                "•",
-                                style: TextStyle(
-                                    fontSize: 14, color: Colors.grey),
-                              ),
-                              SizedBox(width: 5),
-                              Text(
-                                "6h 30min",
-                                style: TextStyle(
-                                    fontSize: 14, color: Colors.grey),
-                              ),
-                              SizedBox(width: 75),
-                              ButtonFavorite()
-                            ],
-                          )
-                        ],
-                      ),
-                    ],
+  InkWell searchcontent(Image img, BuildContext context) {
+    return InkWell(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => DetailPage()));
+      },
+      child: Container(
+                  width: double.infinity,
+                  height: 110,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(14)),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10, horizontal: 15),
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 110,
+                          height: 88,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(14)),
+                          child:
+                              img,
+                        ),
+                        SizedBox(width: 15),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Mobile UI Essentials",
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.bold),
+                            ),
+                            Text(
+                              "Intemediate / 28 lessons",
+                              style:
+                                  TextStyle(color: Colors.grey, fontSize: 14),
+                            ),
+                            SizedBox(height: 23),
+                            Row(
+                              children: [
+                                Icon(
+                                  Icons.star,
+                                  color: Colors.yellow,
+                                  size: 20,
+                                ),
+                                Text(
+                                  "4.9",
+                                  style: TextStyle(
+                                      fontSize: 14, color: Colors.grey),
+                                ),
+                                SizedBox(width: 5),
+                                Text(
+                                  "•",
+                                  style: TextStyle(
+                                      fontSize: 14, color: Colors.grey),
+                                ),
+                                SizedBox(width: 5),
+                                Text(
+                                  "6h 30min",
+                                  style: TextStyle(
+                                      fontSize: 14, color: Colors.grey),
+                                ),
+                                SizedBox(width: 75),
+                                ButtonFavorite()
+                              ],
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              );
+    );
   }
 
   Container kategoriunselected(String text) {
